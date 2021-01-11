@@ -1,4 +1,4 @@
-# Angular 9 Fundamentals Workshop
+# DPS Recipies App (Bootcamp)
 
 ## Getting Started
 
@@ -12,5 +12,6 @@ npm install
 
 To start the app run
 
-
-[Workshop Slides](/Angular_9_Fundamentals.pdf)
+```
+npm run server:all
+```
