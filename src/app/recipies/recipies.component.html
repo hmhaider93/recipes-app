@@ -1,0 +1,83 @@
+<div class="recipies-containers">
+  <div class="recipies-list">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          List of Recipies
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <!-- The Error is from here -->
+          <div *ngIf = "recipies!== null">
+          <mat-list-item *ngFor="let recipie of recipies"
+            (click)="selectRecipie(recipie)">
+            <h3 matLine>{{recipie.dishName}}</h3>
+            <p matLine>{{recipie.description}}</p>
+            <button mat-icon-button color="warn"
+              (click)="deleteRecipie(recipie.id);$event.stopImmediatePropagation()">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </div>
+        </mat-list>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="recipie-details">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <span *ngIf="selectedRecipie.id; else noSelection">{{selectedRecipie.dishName}}</span>
+          <ng-template #noSelection>Select Recipie</ng-template>
+        </mat-card-title>
+      </mat-card-header>
+      <form #form="ngForm" (submit)="saveRecipie(selectedRecipie)">
+        <mat-card-content>
+          <mat-form-field>
+            <input matInput placeholder="Dish Name"
+              type="text" name="dishName" required
+              [(ngModel)]="selectedRecipie.dishName">
+          </mat-form-field>
+          <mat-form-field>
+            <textarea matInput placeholder="Ingredients"
+              type="text" name="ingredients"
+              [(ngModel)]="selectedRecipie.ingredients"></textarea>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Time Required"
+              type="text" name="timeNeeded"
+              [(ngModel)]="selectedRecipie.timeNeeded">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Description of Each Step</mat-label>
+            <textarea matInput placeholder="Here you can write the stepwise instructions for the recipie"
+              type="text" name="description"
+              [(ngModel)]="selectedRecipie.description"></textarea>
+          </mat-form-field>
+          <section>
+            <h4>Rating : {{selectedRecipie.percentComplete}}/10</h4>
+            <mat-slider
+              class="full-width"
+              min="0"
+              max="10"
+              name="percentComplete"
+              thumbLabel
+              [(ngModel)]="selectedRecipie.percentComplete"
+            >
+            </mat-slider>
+          </section>
+          <section>
+          </section>
+          <mat-checkbox name="favorite" [(ngModel)]="selectedRecipie.favorite" ></mat-checkbox>
+        </mat-card-content>
+        <mat-card-actions>
+          <button [disabled]="form.invalid" type="submit" mat-button color="primary">Submit</button>
+          <button type="button" mat-button (click)="cancel()">Cancel</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+</div>

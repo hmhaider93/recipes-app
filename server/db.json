@@ -1,0 +1,63 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Angular 9 Fundamentals",
+      "description": "Learn the fundamentals of Angular 9",
+      "percentComplete": 26,
+      "favorite": true
+    },
+    {
+      "id": 2,
+      "title": "Hello",
+      "description": "hi",
+      "percentComplete": 0,
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "title": "Haider is Awesome",
+      "description": "What hell",
+      "percentComplete": 0,
+      "favorite": false
+    }
+  ],
+  "recipies": [
+    {
+      "id": 2,
+      "title": "",
+      "dishName": "Omega",
+      "ingredients": "Aalo , Gajar",
+      "timeNeeded": "",
+      "description": "jkfldjd",
+      "ranking": 0,
+      "pictureUrl": "",
+      "favorite": false,
+      "percentComplete": 3
+    },
+    {
+      "id": 3,
+      "title": "",
+      "dishName": "My Cool dish",
+      "ingredients": "JavaScript The Really REALLY HARD PARTS",
+      "timeNeeded": "",
+      "description": "dfdff",
+      "ranking": 0,
+      "pictureUrl": "",
+      "favorite": false,
+      "percentComplete": 3
+    },
+    {
+      "id": 4,
+      "title": "",
+      "dishName": "Alpha",
+      "ingredients": "dfdf",
+      "timeNeeded": "12",
+      "description": "Olives, Onions",
+      "ranking": 0,
+      "pictureUrl": "",
+      "favorite": false,
+      "percentComplete": 7
+    }
+  ]
+}
