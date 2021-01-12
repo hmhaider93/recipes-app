@@ -62,4 +62,8 @@ export class RecipiesComponent implements OnInit {
   cancel() {
     this.resetSelectedRecipie();
   }
+
+  suggestNextIngredient(){
+    console.log("Next Ingredient Button has been pressed");
+  }
 }

@@ -19,9 +19,12 @@
     <mat-card-header>
         <mat-card-title>{{selectedRecipie.dishName}}</mat-card-title>
     </mat-card-header>
-    <mat-card-subtitle>Time Required : {{selectedRecipie.timeNeeded}}</mat-card-subtitle>
+    <mat-card-subtitle>Time Required : {{selectedRecipie.timeNeeded}} min</mat-card-subtitle>
     <mat-card-content>
-
+      <h2>Ingredients: </h2>
+      <p>{{selectedRecipie.ingredients}}</p>
+      <h2>Instructions: </h2>
+      <p>{{selectedRecipie.description}}</p>
     </mat-card-content>
 </mat-card>
 </span>
