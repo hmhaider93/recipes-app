@@ -9,8 +9,8 @@
       <mat-card-content>
         <mat-list>
           <!-- The Error is from here -->
-          <div *ngIf = "recipies!== null">
-          <mat-list-item *ngFor="let recipie of recipies"
+          <div *ngIf = "(recipies|async) != null">
+          <mat-list-item *ngFor="let recipie of recipies | async"
             (click)="selectRecipie(recipie)">
             <h3 matLine>{{recipie.dishName}}</h3>
             <p matLine>Rating : {{recipie.rating}}</p>

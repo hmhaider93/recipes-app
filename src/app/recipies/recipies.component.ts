@@ -10,8 +10,8 @@ import { RecipiesService } from '../shared/services/recipies.service';
 export class RecipiesComponent implements OnInit {
 
   selectedRecipie = null;
-
-  recipies:any = null;
+  recipies = this.db.collection('recipe').valueChanges({idField: 'id'});
+  
 
   constructor(private recipiesService: RecipiesService,private db: AngularFirestore) { }
 
@@ -23,24 +23,8 @@ export class RecipiesComponent implements OnInit {
 
   loadRecipies(){
     console.log("loadingRecipies Now");
-    this.db.collection('recipe').get().subscribe(
-      //start
-      this.recipies = function(querySnapshot) {
-        let recipiesRecieved: any[] = [];
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            recipiesRecieved.push(doc.data())
-          
-            
-
-        })
-        console.log(recipiesRecieved)
-      return recipiesRecieved;
-      }
-      //end
-    );
     console.log(this.recipies);
+    //this.recipies = this.db.collection('recipe').valueChanges({idField: 'id'});
     this.cancel();
 
     //  this.recipiesService.all()
