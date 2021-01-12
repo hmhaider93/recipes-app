@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "eastsiberia": {
+      "hosting": {
+        "angular9-fundamentals-workshop": [
+          "eastsiberia"
+        ]
+      }
+    }
+  }
+}
