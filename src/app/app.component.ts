@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'My Cook Book';
   links = [
     { path: '/home', icon: 'home', title: 'Home' },
-    { path: '/courses', icon: 'view_list', title: 'Courses' },
+    { path: '/recipies', icon: 'view_list', title: 'Edit Recipies' },
   ];
 
   constructor() {}

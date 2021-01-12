@@ -13,7 +13,7 @@
           <mat-list-item *ngFor="let recipie of recipies"
             (click)="selectRecipie(recipie)">
             <h3 matLine>{{recipie.dishName}}</h3>
-            <p matLine>{{recipie.description}}</p>
+            <p matLine>Rating : {{recipie.rating}}</p>
             <button mat-icon-button color="warn"
               (click)="deleteRecipie(recipie.id);$event.stopImmediatePropagation()">
               <mat-icon>delete</mat-icon>
@@ -71,7 +71,7 @@
           </section>
           <section>
           </section>
-          <mat-checkbox name="favorite" [(ngModel)]="selectedRecipie.favorite" ></mat-checkbox>
+          <button type="button" mat-button (click)="suggestNextIngredient()">Suggest Next Ingredient</button>
         </mat-card-content>
         <mat-card-actions>
           <button [disabled]="form.invalid" type="submit" mat-button color="primary">Submit</button>
