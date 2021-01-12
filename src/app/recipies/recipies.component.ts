@@ -35,7 +35,7 @@ export class RecipiesComponent implements OnInit {
             
 
         })
-        console.log(recipiesRecieved);
+        console.log(recipiesRecieved)
       return recipiesRecieved;
       }
       //end
