@@ -19,9 +19,9 @@
     <mat-card-header>
         <mat-card-title>{{selectedRecipie.dishName}}</mat-card-title>
     </mat-card-header>
+    <mat-card-subtitle>Time Required : {{selectedRecipie.timeNeeded}}</mat-card-subtitle>
     <mat-card-content>
-        <span *ngIf="selectedRecipie.id; else elseBlock">{{selectedRecipie | json}}</span>
-        <ng-template #elseBlock>Select a lesson</ng-template>
+
     </mat-card-content>
 </mat-card>
 </span>
