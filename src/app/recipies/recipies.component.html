@@ -58,14 +58,14 @@
               [(ngModel)]="selectedRecipie.description"></textarea>
           </mat-form-field>
           <section>
-            <h4>Rating : {{selectedRecipie.percentComplete}}/10</h4>
+            <h4>Rating : {{selectedRecipie.rating}}/10</h4>
             <mat-slider
               class="full-width"
               min="0"
               max="10"
-              name="percentComplete"
+              name="rating"
               thumbLabel
-              [(ngModel)]="selectedRecipie.percentComplete"
+              [(ngModel)]="selectedRecipie.rating"
             >
             </mat-slider>
           </section>

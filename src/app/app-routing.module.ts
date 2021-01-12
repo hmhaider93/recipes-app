@@ -8,7 +8,7 @@ import { RecipiesComponent } from './recipies/recipies.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'courses', component: CoursesComponent },
-  {path : 'recipies', component: RecipiesComponent},
+  { path : 'recipies', component: RecipiesComponent },
   { path: '**', redirectTo: '/home' }
 ];
 

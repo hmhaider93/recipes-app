@@ -29,14 +29,12 @@ export class RecipiesComponent implements OnInit {
   resetSelectedRecipie() {
     const emptyRecipie = {
       id: null,
-      title: '',
       dishName: '',
       ingredients: '',
       timeNeeded: '',
       description: '',
-      ranking: 0,
+      rating: 0,
       pictureUrl: '',
-      favorite: false
     };
 
     this.selectedRecipie = emptyRecipie;

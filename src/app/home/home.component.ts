@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LessonsService } from '../shared/services/lessons.service';
+import { RecipiesService } from '../shared/services/recipies.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,8 @@ import { LessonsService } from '../shared/services/lessons.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  title = 'Hello Workshop';
-  currentLesson = null;
-  courseLessons = null;
+  title = 'List of Recipies';
+
 
   // CHALLENGE
   // STEP 01: Create a LessonsService
@@ -19,15 +19,60 @@ export class HomeComponent implements OnInit {
   // STEP 04: Move lessons to service and consume in component
 
 
+  selectedRecipie = null;
 
-  constructor(private lessonService: LessonsService) { }
+  recipies = null;
+
+  constructor(private recipiesService: RecipiesService) { }
 
   ngOnInit(): void {
-    this.courseLessons = this.lessonService.all();
+    this.resetSelectedRecipie();
+    this.loadRecipies();
+
   }
 
-  selectLesson(lesson) {
-    console.log('SELECT LESSON FIRED!', lesson);
-    this.currentLesson = lesson;
+  loadRecipies(){
+    this.recipiesService.all()
+    .subscribe(recipies => this.recipies = recipies);
+    this.cancel();
+  }
+
+  resetSelectedRecipie() {
+    const emptyRecipie = {
+      id: null,
+      dishName: '',
+      ingredients: '',
+      timeNeeded: '',
+      description: '',
+      rating: 0,
+      pictureUrl: ''
+    };
+
+    this.selectedRecipie = emptyRecipie;
+  }
+
+  selectRecipie(recipie) {
+    this.selectedRecipie = recipie;
+  }
+
+  saveRecipie(recipie) {
+    if(recipie.id) {
+      this.recipiesService.update(recipie).subscribe(result => this.loadRecipies());
+    } else {
+      this.recipiesService.create(recipie)
+      .subscribe(result => this.loadRecipies());
+
+    }
+  }
+
+  deleteRecipie(recipieId) {
+    this.recipiesService.delete(recipieId)
+    .subscribe(result => this.loadRecipies());
+  }
+
+  cancel() {
+    this.resetSelectedRecipie();
   }
 }
+
+

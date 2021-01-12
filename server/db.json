@@ -25,39 +25,13 @@
   "recipies": [
     {
       "id": 2,
-      "title": "",
       "dishName": "Omega",
       "ingredients": "Aalo , Gajar",
       "timeNeeded": "",
       "description": "jkfldjd",
       "ranking": 0,
       "pictureUrl": "",
-      "favorite": false,
       "percentComplete": 3
-    },
-    {
-      "id": 3,
-      "title": "",
-      "dishName": "My Cool dish",
-      "ingredients": "JavaScript The Really REALLY HARD PARTS",
-      "timeNeeded": "",
-      "description": "dfdff",
-      "ranking": 0,
-      "pictureUrl": "",
-      "favorite": false,
-      "percentComplete": 3
-    },
-    {
-      "id": 4,
-      "title": "",
-      "dishName": "Alpha",
-      "ingredients": "dfdf",
-      "timeNeeded": "12",
-      "description": "Olives, Onions",
-      "ranking": 0,
-      "pictureUrl": "",
-      "favorite": false,
-      "percentComplete": 7
     }
   ]
 }
