@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { RecipiesService } from '../shared/services/recipies.service';
+import { Recipe } from './recipe';
 
 @Component({
   selector: 'app-recipies',
@@ -10,14 +11,15 @@ import { RecipiesService } from '../shared/services/recipies.service';
 export class RecipiesComponent implements OnInit {
 
   selectedRecipie = null;
-  recipies = this.db.collection('recipe').valueChanges({idField: 'id'});
+  recipies = this.db.collection('recipe').valueChanges({idField: 'this'});
+  re : Recipe
   
 
   constructor(private recipiesService: RecipiesService,private db: AngularFirestore) { }
 
   ngOnInit(): void {
     this.resetSelectedRecipie();
-    this.loadRecipies();
+    //this.loadRecipies();
 
   }
 
@@ -25,7 +27,7 @@ export class RecipiesComponent implements OnInit {
     console.log("loadingRecipies Now");
     console.log(this.recipies);
     //this.recipies = this.db.collection('recipe').valueChanges({idField: 'id'});
-    this.cancel();
+    //this.cancel();
 
     //  this.recipiesService.all()
     //  .subscribe(recipies => this.recipies = recipies);
@@ -34,7 +36,6 @@ export class RecipiesComponent implements OnInit {
 
   resetSelectedRecipie() {
     const emptyRecipie = {
-      id: null,
       dishName: '',
       ingredients: '',
       timeNeeded: '',
@@ -54,20 +55,14 @@ export class RecipiesComponent implements OnInit {
     if(recipie.id) {
       this.recipiesService.update(recipie).subscribe(result => this.loadRecipies());
     } else {
-      recipie.id = 1;
       this.db.collection('recipe').add(recipie).then(function(docRef) {
-        //this.loadRecipies();
-        console.log("Document written with ID: ", docRef.id);})
+        console.log("Document written with ID: ", docRef.id);
+        recipie.id = docRef.id;
+      
+      })
         .catch(function(error) {
           console.error("Error adding document: ", error);
       })
-      .finally( () => 
-        this.loadRecipies()
-        );
-      // Old
-      //this.recipiesService.create(recipie)
-      //.subscribe(result => this.loadRecipies());
-
     }
   }
 
