@@ -1,5 +1,4 @@
-# DPS Recipies App (Bootcamp)
-
+# DPS Recipies App
 ## Getting Started
 
 ```
