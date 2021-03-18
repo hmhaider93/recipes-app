@@ -1,4 +1,4 @@
-# DPS Recipies App
+# Recipies App
 ## Getting Started
 
 ```
