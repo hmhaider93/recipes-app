@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-root',
@@ -12,5 +14,10 @@ export class AppComponent {
     { path: '/recipies', icon: 'view_list', title: 'Edit Recipies' },
   ];
 
-  constructor() {}
+  constructor(){}
+
+  // constructor(private db: AngularFirestore) {
+  //   const things = db.collection('things').valueChanges();
+  //     things.subscribe(console.log);
+  // }
 }

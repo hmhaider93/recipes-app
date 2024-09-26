@@ -14,6 +14,10 @@ import { LessonsService } from './shared/services/lessons.service';
 import { RecipiesComponent } from './recipies/recipies.component';
 import { RecipiesService } from './shared/services/recipies.service';
 
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -21,13 +25,18 @@ import { RecipiesService } from './shared/services/recipies.service';
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   declarations: [
     AppComponent,
     HomeComponent,
     CoursesComponent,
-    RecipiesComponent
+    RecipiesComponent,
+    AppComponent, 
+    //TaskDialogComponent, 
+    //TaskComponent
   ],
   providers: [
     CoursesService,
